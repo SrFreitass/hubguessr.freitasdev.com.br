@@ -1,38 +1,29 @@
-import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
+import React from 'react';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  const [fontsLoaded] = useFonts({
+    'Manrope-Regular': require('@/assets/fonts/Manrope-Regular.ttf'),
+    'Manrope-Bold': require('@/assets/fonts/Manrope-Bold.ttf'),
+    'Manrope-ExtraBold': require('@/assets/fonts/Manrope-ExtraBold.ttf'),
+    'Manrope-Semibold': require('@/assets/fonts/Manrope-SemiBold.ttf'),
+    'Manrope-Medium': require('@/assets/fonts/Manrope-Medium.ttf'),
   });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
+  if (!fontsLoaded) {
+    return <AppLoading />;
   }
 
   return (
-    <ThemeProvider value={DefaultTheme}>
+    <>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(pages)" />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+      <StatusBar style="light" />
+    </>
   );
 }

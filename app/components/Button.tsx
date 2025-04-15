@@ -1,6 +1,6 @@
 import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from "react-native"
 
-export const Button = ({ text, icon, bg, stroke = '#CDD1E0', onPress, isDark = false }: { text: string, icon: ImageSourcePropType, onPress?: () => void, bg?: string, isDark?: boolean, stroke?: string }) => {
+export const Button = ({ text, icon, bg, stroke = '#CDD1E0', onPress, isDark = false }: { text: string, icon?: ImageSourcePropType, onPress?: () => void, bg?: string, isDark?: boolean, stroke?: string }) => {
     return (
         <View style={style.view}>
             <TouchableOpacity style={{ ...style.button, backgroundColor: bg || 'white', borderColor: stroke }} onPress={onPress}>
@@ -14,10 +14,11 @@ export const Button = ({ text, icon, bg, stroke = '#CDD1E0', onPress, isDark = f
 const style = StyleSheet.create({
     view: {
         width: '100%',
+    
     },
     text: {
         fontSize: 16,
-        fontWeight: 'bold',
+        fontFamily: 'Manrope-ExtraBold'
     },
     button: {
         display: 'flex',

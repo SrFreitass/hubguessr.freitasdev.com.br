@@ -6,11 +6,11 @@ export const ChallengeOfDay = () => {
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 16 }}>
                 <Image source={require("@/assets/images/icons/calendar.png")} style={{ width: 32, height: 32}}/>
                 <View>
-                    <Text style={{ color: 'white', fontSize: 18, fontWeight: 'bold', marginTop: 8 }}>Desafio do dia</Text>
-                    <Text style={{ color: '#999EA1', fontSize: 12, fontWeight: 'semibold', marginBottom: 8 }}>Desafie-se a adivinhar o local do dia</Text>
+                    <Text style={{ color: 'white', fontSize: 18, fontFamily: 'Manrope-ExtraBold', marginTop: 8 }}>Desafio do dia</Text>
+                    <Text style={{ color: '#999EA1', fontSize: 12, fontFamily: 'Manrope-Semibold', marginBottom: 8 }}>Desafie-se a adivinhar o local do dia</Text>
                 </View>
             </View>
-            <Image source={require("@/assets/images/espaco-de-atendimento 1.png")} />
+            <Image source={require("@/assets/images/espaco-de-atendimento 1.png")} style={{ width: '100%', borderRadius: 20 }}/>
         </View>
     )
 }

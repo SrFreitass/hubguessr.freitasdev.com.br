@@ -1,9 +1,14 @@
+import { useLocalSearchParams } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { GestureResponderEvent, Image, Pressable, Text, TouchableOpacity, TouchableWithoutFeedback, View } from "react-native";
 
 export default function GameScreen() {
+    const { dificulty } = useLocalSearchParams()
+
+    console.log(dificulty);
+
     const [challenges, setChallenges] = useState([
-        ...shuffleChallenges(),
+        ...shuffleChallenges(dificulty as "easy" | "medium" | "hard"),
     ]);
     const [counter, setCounter] = useState(30);
     const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);

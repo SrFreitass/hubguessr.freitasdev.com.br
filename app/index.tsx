@@ -8,6 +8,8 @@ enum Dificulty {
   HARD,
 }
 
+const dificultyOptions = ["easy", "medium", "hard"];
+
 export default function Index() {
   const [dificulty, setDificulty] = useState(Dificulty.EASY);
 
@@ -22,7 +24,7 @@ export default function Index() {
         className="scale-[0.4]"
       />
       <TouchableOpacity className="bg-[#FF4400] rounded-xl h-16 w-2/3 justify-center items-center border">
-        <Link href="/game">
+        <Link href={`/game?dificulty=${dificultyOptions[dificulty]}`}>
           <Text className="text-white text-2xl font-bold mt-10">
             Jogar agora
           </Text>

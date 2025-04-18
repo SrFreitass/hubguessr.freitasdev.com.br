@@ -2,16 +2,16 @@ import { Link } from "expo-router";
 import { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
-enum Dificulty {
+enum Difficulty {
   EASY,
   MEDIUM,
   HARD,
 }
 
-const dificultyOptions = ["easy", "medium", "hard"];
+const difficultyOptions = ["easy", "medium", "hard"];
 
 export default function Index() {
-  const [dificulty, setDificulty] = useState(Dificulty.EASY);
+  const [difficulty, setDifficulty] = useState(Difficulty.EASY);
 
   return (
     <View className="flex-1 justify-center items-center bg-[#0A0300]">
@@ -24,7 +24,7 @@ export default function Index() {
         className="scale-[0.4]"
       />
       <TouchableOpacity className="bg-[#FF4400] rounded-xl h-16 w-2/3 justify-center items-center border">
-        <Link href={`/game?dificulty=${dificultyOptions[dificulty]}`}>
+        <Link href={`/game?difficulty=${difficultyOptions[difficulty]}`}>
           <Text className="text-white text-2xl font-bold mt-10">
             Jogar agora
           </Text>
@@ -32,17 +32,17 @@ export default function Index() {
       </TouchableOpacity>
 
       <View className="flex-row gap-4 justify-center items-center mt-4 w-2/3">
-        <TouchableOpacity className={`border border-[#FF4400] h-16 flex-grow rounded-xl justify-center items-center ${dificulty === Dificulty.EASY ? "bg-[#FF4400]" : ""}`} onPress={() => setDificulty(Dificulty.EASY)}>
+        <TouchableOpacity className={`border border-[#FF4400] h-16 flex-grow rounded-xl justify-center items-center ${difficulty === Difficulty.EASY ? "bg-[#FF4400]" : ""}`} onPress={() => setDifficulty(Difficulty.EASY)}>
           <Text className="text-white text-xl font-bold">
           Fácil
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity className={`border border-[#FF4400] h-16 flex-grow rounded-xl justify-center items-center ${dificulty === Dificulty.MEDIUM ? "bg-[#FF4400]" : ""}`} onPress={() => setDificulty(Dificulty.MEDIUM)}>
+        <TouchableOpacity className={`border border-[#FF4400] h-16 flex-grow rounded-xl justify-center items-center ${difficulty === Difficulty.MEDIUM ? "bg-[#FF4400]" : ""}`} onPress={() => setDifficulty(Difficulty.MEDIUM)}>
           <Text className="text-white text-xl font-bold">
           Médio
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity className={`border border-[#FF4400] h-16 flex-grow rounded-xl justify-center items-center ${dificulty === Dificulty.HARD ? "bg-[#FF4400]" : ""}`} onPress={() => setDificulty(Dificulty.HARD)}>
+        <TouchableOpacity className={`border border-[#FF4400] h-16 flex-grow rounded-xl justify-center items-center ${difficulty === Difficulty.HARD ? "bg-[#FF4400]" : ""}`} onPress={() => setDifficulty(Difficulty.HARD)}>
           <Text className="text-white text-xl font-bold">
           Difícil
           </Text>

@@ -33,11 +33,11 @@ const challenges = {
     ]
 }
 
-const shuffleChallenges = (dificulty: keyof typeof challenges) => {
+const shuffleChallenges = (difficulty: keyof typeof challenges) => {
     const selectedChallenges: number[] = [];
 
     for (let i = 0; i < 5; i++) {
-        const randomIndex = Math.floor(Math.random() * challenges[dificulty].length);
+        const randomIndex = Math.floor(Math.random() * challenges[difficulty].length);
         const challenge = randomIndex;
 
         if (selectedChallenges.includes(challenge)) {
@@ -50,9 +50,9 @@ const shuffleChallenges = (dificulty: keyof typeof challenges) => {
 
     return selectedChallenges.map((challenge) => {
         return {
-            placeSrc: challenges[dificulty][challenge].placeSrc,
-            mapSrc: challenges[dificulty][challenge].mapSrc,
-            correctAnswer: challenges[dificulty][challenge].correctAnswer,
+            placeSrc: challenges[difficulty][challenge].placeSrc,
+            mapSrc: challenges[difficulty][challenge].mapSrc,
+            correctAnswer: challenges[difficulty][challenge].correctAnswer,
         };
     });
 }
